@@ -1,0 +1,108 @@
+Problema 1 - cutii
+Timp de implementare - 3 ore
+-------------------------------------------------------------------------------
+    Am implementat doua functii: una pentru a verifica daca fiecare prizonier 
+va deschide, dupa maxim n / 2 - 1 cutii, o cutie care contine numarul sau de
+ordine si o functie care afiseaza ciclurile, in configuratie unica, daca
+acestea exista.
+    Functia "prisoners" parcurge vectorul de prizonieri si verifica 
+pentru fiecare dintre acestia daca pot deschide o cutie care le contine numarul
+de ordine, avand voie sa deschida pana la n / 2 cutii.
+    Functia "cycles" afiseaza toate ciclurile gasite, in configuratie unica,
+indiferent de lungimea acestora.Se utilizeaza, astfel, vectorul "verific",
+prin intermediul caruia ne asiguram ca nu vom trece de doua ori prin aceeasi
+cutie.
+
+Problema 2 - lungi
+Timp de implementare - 6 ore
+-------------------------------------------------------------------------------
+    Am implementat patru functii: una pentru afisarea numarului in urma unei 
+operatii, una pentru transformarea sirului primit in partea reala si partea
+imaginare, una pentru adunare si una pentru scadere.
+    Functia "change" primeste ca argumente un sir de caractere, ce reprezinta
+numarul complex citit, un numar intreg ce reprezinta lungimea numarului si 
+doi vectori de tip intreg ce vor retine partea reala, respectiv partea
+imaginara a numarului complex.
+    Functia "adunare" aduna partile reale sau imaginare a doua numere,
+netinand cont de bitul de semn, astfel usurand logica semnelor discutata in 
+functia "main".Numerele se aduna bit cu bit, incepand de la sfarsit, si
+verificand intotdeauna daca suma obitnuta este mai mare decat 10, caz in care
+restul impartirii la 10 ramane pe pozitia curenta, iar catul se aduna la
+urmatorul bit.In cazul in care bitul dinaintea semnului are valoarea mai mare
+decat 10, se va trunchia prin impartirea la 10 si pastrarea restului.
+    Functia "scadere" scade partile reale sau imaginare a doua numere, tinand
+cont de bitul de semn si de ordinea celor doua numere.Astfel, functia se 
+asigura, initial, ca scaderea se va face intre un numar mai mare si un numar
+mai mic, realizand interschimbarea lor, in caz de nevoie, si retinand bitul 
+de semn.Ulterior, se va face scaderea bit cu bit, incepand de la sfarsitul
+vectorului, verificand daca scaderea este negativa, caz in care se va cauta 
+cel mai apropiat bit diferit de 0 si i se va scadea valoarea cu 1.Orice bit 
+egal cu 0 intalnit pe parcurs va avea valoarea 9.
+    In functia "main", sunt apelate functiile definite anterior, de asemenea 
+fiind realizata logica semnelor.Astfel, sunt tratatepatru cazuri:adunarea a 
+doua numere pozitive sau negativa, caz in care se apeleaza functia de adunare,
+si scaderea a doua numere pozitive, caz in care se va apela scaderea sau
+adunarea unui numar negativ cu un numar pozitiv, caz in care se va apela
+scaderea, cu ordinea vectorilor inversata, pentru a fi siguri ca se va face
+scaderea intre doua numere pozitive.
+
+Problema 3 - codificari
+Timp de implementare - 12 ore
+-------------------------------------------------------------------------------
+    Am implementat patru functii aferente celor doua codificari, respectiv doua
+decodificari, fiecare primind ca argument un sir de caractere ce reprezinta
+textul de codificat/decodificat, respectiv un sir de caractere sau un numar
+intreg ce reprezinta cheia de codificare/decodificare.
+    Functia "cod_A" initializeaza matricea cu spatii pentru a preintampina
+cazurile in care va fi necesara completarea liniei cu spatii si transpune, pe
+linii, textul in matrice.Se realizeaza o copie a cheii si se initializeaza un
+vector de indici cu valoarea fiecarui indice, ulterior cheia fiind sortata
+crescator, realizandu-se, simultan, interschimbarea indicilor.In final, se 
+suprascrie textul initial prin copierea caracter cu caracter a coloanelor,
+in ordinea data de vectorul "indici".
+    Functia "decod_A" initializeaza matricea cu spatii pentru a preintampina
+cazurile in care va fi necesara completarea coloanei cu spatii si transpune, pe
+coloane, textul in matrice.Se realizeaza o copie a cheii si se initializeaza un
+vector de indici cu valoarea fiecarui indice, ulterior cheia fiind sortata
+crescator, realizandu-se, simultan, interschimbarea indicilor.In final, se 
+suprascrie textul initial prin parcurgerea in ordine crescatoare a indicilor
+cheii nesortate si verificandu-se ce coloana din matrice contine primul
+caracter de pe linia i ce ar trebui sa fie suprascris, folosindu-se vectorul
+de indici sortati crescator dupa cheie.
+    Functia "cod_B" realizeaza mutarea circulara a textului spre dreapta cu un
+numar dat de caractere, modificand, totodata, valoarea acestora prin adunarea
+cu numarul dat de caractere la codul ASCII al acestora.De asemenea, se
+considera cazuri speciale pentru trecerile de la litere mici la litere mari si
+vice-versa prin determinarea unor formule.
+    Functia "decod_B" realizeaza mutarea circulara a textului spre stanga cu un
+numar dat de caractere, modificand, totodata, valoarea acestora prin scaderea
+cu numarul dat de caractere la codul ASCII al acestora.De asemenea, se
+considera cazuri speciale pentru trecerile de la litere mici la litere mari si
+vice-versa prin determinarea unor formule.
+    In functia "main", se considera patru cazuri pentru cele doua codificari,
+respectiv doua decodificari, fiind apelate functiile definite anterior si
+afisat rezultatul produs de acestea.
+
+Problema 4 - masini
+Timp de implementare - 4 ore
+-------------------------------------------------------------------------------
+    Am implementat trei functii aferente celor trei task-uri.
+    Functia "cerinta_a" retine, in vectorul "tip", numarul de masini din
+fiecare motorizare care se regasesc intre datele introduse.
+    Functia "cerinta_b" retine,in matricea "b", toate brand-urile de masini
+gasite, in vectorul "c", consumul total al masinilor si in vectorul "l",
+costul total al combistibilului, avand in vedere faptul ca aceeasi marca de
+masini poate avea motorizari diferite.Astfel ,se citeste un brand si se
+verifica in matricea de brand-uri daca a mai fost intalnit sau nu, fiind
+adaugata ulterior in cazul in care este prima aparitie si sunt calculate 
+consumul si costul.
+    Functia "cerinta_c" utilizeaza vectorul "incorecte" pentru a retine ce
+masina are numarul incorect, in caz ca aceasta se intampla.In continuare,
+este verificata lungimea numarului, care trebuie sa fie intre 6 si 8, fiind
+considerate patru cazuri si verificand fiecare caracter al numarului: pentru
+lungime sase("LCCLLL"), pentru lungime sapte("LLCCLLL" / "LCCCLLL"),
+respectiv pentru lungime opt("LLCCCLLL"), unde "L" reprezinta o litera mare
+din alfabet si "C" o cifra.
+    In functia "main" sunt alocate dinamic tablourile principale utilizate in
+rezolvarea problemei si sunt apelate functiile definite anterior si afisate
+rezultatele in formatul dorit, fiind eliberata memoria alocata anterior.
